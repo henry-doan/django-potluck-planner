@@ -14,6 +14,9 @@ def register(request):
       last_name = form.cleaned_data.get('last_name')
       messages.success(request, f'Welcome {first_name} {last_name}! You are logged in!')
       return redirect('login')
+    else:
+      print("not valid")
+      print(form)
   else:
     form = RegistrationForm()
   return render(request, 'users/register.html', {'form': form})

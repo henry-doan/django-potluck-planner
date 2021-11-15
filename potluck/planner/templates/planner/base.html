@@ -3,27 +3,13 @@
 <head>
   <title>Potluck Planner</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
-
 </head>
 <body>
-  <!-- <nav class="red" role="navigation">
-    <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Logo</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav> -->
   <div class="ui inverted vertical masthead center aligned segment">
     <div class="ui large secondary inverted pointing menu stackable">
       <div class="ui container">
-        <a class="active item">Home</a>
-        <a class="item">Contact</a>
+        <a class="item active" href="{% url 'home' %}">Home</a>
+        <a class="item" href="{% url 'contact' %}">Contact</a>
         {% if user.is_authenticated %}
           <a class="item">Events</a>
         {% endif %}
@@ -44,19 +30,17 @@
       </div>
     </div>
   </div>
-  <div class="ui container">
-    {% if messages %}
-      {% for message in messages %}
-        <div class="alert alert-{{ message.tags }}">
-          {{ message }}
-        </div>
-      {% endfor %}
-    {% endif %}
+  {% if messages %}
+    {% for message in messages %}
+      <div class="ui message {{ message.tags }}">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
 
-    {% block body %}
-  
-    {% endblock %}
-  </div>
+  {% block body %}
+
+  {% endblock %}
 </body>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha256-t8GepnyPmw9t+foMh3mKNvcorqNHamSKtKRxxpUEgFI=" crossorigin="anonymous"></script>
