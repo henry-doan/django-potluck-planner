@@ -16,7 +16,7 @@ class Event(models.Model):
 
   name = models.CharField(max_length=200)
   desc = models.TextField(max_length=2000)
-  image = models.ImageField(upload_to='pictures', default='pictures/none/noimg.jpg')
+  image = models.ImageField(upload_to='pictures', default='pictures/noimg.jpg')
   location = models.CharField(max_length=200)
   start_day = models.DateField()
   end_day = models.DateField()	
@@ -31,5 +31,5 @@ class Item(models.Model):
   name = models.CharField(max_length=200)
   category = models.CharField(max_length=200)
   userId = models.IntegerField()	
-  image = models.ImageField(upload_to='pictures', default='pictures/none/noimg.jpg')
+  image = models.ImageField(upload_to='pictures', default='pictures/noimg.jpg')
   event = models.ForeignKey(Event, on_delete=models.CASCADE)

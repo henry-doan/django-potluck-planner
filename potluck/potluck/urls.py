@@ -24,6 +24,7 @@ from planner import views
 urlpatterns = [
     path('', views.home, name="home"),
     path('contact/', views.contact, name="contact"),
+    path('events/', views.events, name="events"),
     path('register/', user_views.register, name='register'),
     path('login/', authentication_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', authentication_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),

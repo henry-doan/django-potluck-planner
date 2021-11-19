@@ -1,0 +1,32 @@
+{% extends 'planner/base.html' %}
+
+{% block body %}
+  <div class="ui container">
+    <div class="ui link cards">
+      {% for event in events %}
+        <div class="card">
+          <div class="image">
+            <img src="../../../pictures/{{ event.image }}">
+          </div>
+          <div class="content">
+            <div class="header">{{ event.name }}</div>
+            <div class="meta">
+              <a>{{ event.location }}</a>
+            </div>
+            <div class="description">
+              {{ event.desc }}
+            </div>
+          </div>
+          <div class="extra content">
+            <span>
+              {{ event.start_day|date:"M d" }} - {{ event.end_day|date:"M d" }}
+            </span>
+            <span class="right floated">
+              {{ event.start_time }} - {{ event.end_time }}
+            </span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{%  endblock %}
