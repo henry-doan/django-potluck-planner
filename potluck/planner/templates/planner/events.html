@@ -2,6 +2,18 @@
 
 {% block body %}
   <div class="ui container">
+    <br />
+    <h2 class="ui center aligned icon header">
+      <i class="circular utensils icon"></i>
+      Events
+    </h2>
+    <br />
+    <a href="{% url 'add_event' %}">
+      <button class="circular ui icon button right floated">
+        <i class="icon plus"></i>
+      </button>
+    </a>
+    <br />
     <div class="ui link cards">
       {% for event in events %}
         <div class="card">
@@ -11,7 +23,7 @@
           <div class="content">
             <div class="header">{{ event.name }}</div>
             <div class="meta">
-              <a>{{ event.location }}</a>
+              <p>{{ event.location }}</p>
             </div>
             <div class="description">
               {{ event.desc }}

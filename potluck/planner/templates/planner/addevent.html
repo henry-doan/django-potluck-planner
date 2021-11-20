@@ -1,0 +1,77 @@
+{% extends 'planner/base.html' %}
+
+{% block body %}
+  <div class="ui container">
+    <div class="ui middle aligned center aligned grid">
+      <div class="four wide column"></div>
+      <div class="eight wide column">
+        <h2 class="ui red image header">
+          <img src="../../../pictures/logo.png" class="image">
+          <br />
+          <div class="content">
+            Add Event
+          </div>
+        </h2>
+        <div class="ui stacked segment inverted">
+          <form method="POST" class="ui large form inverted" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="user circle icon"></i>
+                <input type="text" name="name" placeholder="Event Name">
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui input">
+                <textarea type="text" name="desc" placeholder="Description"></textarea>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="user circle icon"></i>
+                <input type="text" name="location" placeholder="Event location">
+              </div>
+            </div>
+            <div class="field">
+              <label>Event Image</label>
+              <div class="ui input">
+                <input type="file" name="image" accept="image/*" id="id_image">
+              </div>
+            </div>
+            <div class="fields">
+              <label class="ui white">Start Day</label>
+              <div class="field">
+                <div class="ui input">
+                  <input type="date" name="start_day">
+                </div>
+              </div>
+              <label>End Day</label>
+              <div class="field">
+                <div class="ui input">
+                  <input type="date" name="end_day">
+                </div>
+              </div>
+            </div>
+            <br />
+            <div class="fields">
+              <label>Start Time</label>
+              <div class="field">
+                <div class="ui input">
+                  <input type="time" name="start_time">
+                </div>
+              </div>
+              <label>End Time</label>
+              <div class="field">
+                <div class="ui input">
+                  <input type="time" name="end_time">
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="ui inverted red basic button">Send</button>
+          </form>
+        </div>
+      </div>
+      <div class="four wide column"></div>
+    </div>
+  </div>
+{%  endblock %}
