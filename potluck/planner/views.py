@@ -27,7 +27,7 @@ def add_event(request):
   if request.method == 'POST':
     name = request.POST.get('name', '')
     desc = request.POST.get('desc', '')
-    image = request.POST.get('image', '')
+    image = request.FILES["image"]
     location = request.POST.get('location', '')
     start_day = request.POST.get('start_day', '')
     end_day = request.POST.get('end_day', '')
