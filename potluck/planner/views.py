@@ -1,6 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Contact, Event
-from .forms import EventForm
+from .models import Contact, Event, Item
 
 # Create your views here.
 def home(request):
@@ -23,7 +22,6 @@ def events(request):
   return render(request, 'planner/events.html', {'events': events})
 
 def add_event(request):
-  form = EventForm(request.POST or None)
   if request.method == 'POST':
     name = request.POST.get('name', '')
     desc = request.POST.get('desc', '')
@@ -33,8 +31,20 @@ def add_event(request):
     end_day = request.POST.get('end_day', '')
     start_time = request.POST.get('start_time', '')
     end_time = request.POST.get('end_time', '')
-    event = Event(name=name, desc=desc, image=image, location=location, start_day=start_day, end_day=end_day, start_time=start_time, end_time=end_time)
+    created_by = request.user.email
+    event = Event(name=name, desc=desc, image=image, location=location, start_day=start_day, end_day=end_day, start_time=start_time, end_time=end_time, created_by=created_by)
 
     event.save()
     return redirect('events')
-  return render(request, 'planner/addevent.html', {'form': form})
+  return render(request, 'planner/addevent.html')
+
+def event_details(request, pk):
+  event = Event.objects.get(pk=pk)
+  items = Item.objects.all()
+
+  context = {
+    'event': event,
+    'items': items
+  }
+
+  return render(request, 'planner/eventdetails.html', context)

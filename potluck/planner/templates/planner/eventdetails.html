@@ -1,0 +1,12 @@
+{% extends 'planner/base.html' %}
+
+{% block body %}
+  <div class="ui container">
+    
+    {% if event.created_by == user.email %}
+      <p>delete</p>
+      <p>edit</p>
+    {% endif %}
+
+  </div>
+{%  endblock %}

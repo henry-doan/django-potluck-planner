@@ -14,11 +14,13 @@
       </button>
     </a>
     <br />
-    <div class="ui link cards">
+    <div class="ui cards">
       {% for event in events %}
         <div class="card">
-          <div class="image">
-            <img src="../../../pictures/{{ event.image }}">
+          <div class="image link">
+            <a href="{% url 'event_details' event.id %}">
+              <img src="../../../pictures/{{ event.image }}" style="height: 300px; object-fit: cover; width: 100%;">
+            </a>
           </div>
           <div class="content">
             <div class="header">{{ event.name }}</div>
@@ -36,6 +38,10 @@
             <span class="right floated">
               {{ event.start_time }} - {{ event.end_time }}
             </span>
+            <!-- {% if event.created_by == user.email %}
+              <p>delete</p>
+              <p>edit</p>
+            {% endif %} -->
           </div>
         </div>
       {% endfor %}
