@@ -2,6 +2,8 @@
 
 {% block body %}
   <div class="ui container">
+    <br />
+    <br />
     <img class="ui image circular medium centered" src="../../../pictures/{{ event.image }}">
     <h2 class="ui center aligned header">
       <br />
@@ -21,9 +23,9 @@
           <button class="circular ui icon button yellow">
             <i class="icon pencil alternate"></i>
           </button>
-          <button class="circular ui icon button red">
+          <a class="circular ui icon button red" href="{% url 'delete_event' event.id %}">
             <i class="icon trash"></i>
-          </button>
+          </a>
         </div>
       {% endif %}
     </h5>

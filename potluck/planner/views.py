@@ -48,3 +48,12 @@ def event_details(request, pk):
   }
 
   return render(request, 'planner/eventdetails.html', context)
+
+def delete_event(request, id):
+  event = Event.objects.get(id=id)
+
+  if request.method == 'POST':
+    event.delete()
+    return redirect('events')
+
+  return render(request, 'planner/deleteevent.html', {'event': event })
