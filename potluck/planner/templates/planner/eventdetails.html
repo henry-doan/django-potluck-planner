@@ -20,9 +20,9 @@
       <br />
       {% if event.created_by == user.email %}
         <div class="ui buttons">
-          <button class="circular ui icon button yellow">
+          <a class="circular ui icon button yellow" href="{% url 'update_event' event.id %}">
             <i class="icon pencil alternate"></i>
-          </button>
+          </a>
           <a class="circular ui icon button red" href="{% url 'delete_event' event.id %}">
             <i class="icon trash"></i>
           </a>

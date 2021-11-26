@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Contact, Event, Item
+from .forms import EventForm
 
 # Create your views here.
 def home(request):
@@ -56,4 +57,27 @@ def delete_event(request, id):
     event.delete()
     return redirect('events')
 
-  return render(request, 'planner/deleteevent.html', {'event': event })
+  return render(request, 'planner/deleteevent.html', { 'event': event })
+
+def update_event(request, id):
+  event = Event.objects.get(id=id)
+  form = EventForm(request.POST or None, instance=event)
+
+  if form.is_valid():
+    form.save()
+    return redirect('events')
+  # if request.method == 'POST':
+  #   name = request.POST.get('name', '')
+  #   desc = request.POST.get('desc', '')
+  #   image = request.FILES["image"]
+  #   location = request.POST.get('location', '')
+  #   start_day = request.POST.get('start_day', '')
+  #   end_day = request.POST.get('end_day', '')
+  #   start_time = request.POST.get('start_time', '')
+  #   end_time = request.POST.get('end_time', '')
+  #   created_by = request.user.email
+  #   event = Event(name=name, desc=desc, image=image, location=location, start_day=start_day, end_day=end_day, start_time=start_time, end_time=end_time, created_by=created_by)
+
+  #   event.save()
+  #   return redirect('events')
+  return render(request, 'planner/updateevent.html', { 'form': form, 'event': event } )
