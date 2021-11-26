@@ -2,11 +2,144 @@
 
 {% block body %}
   <div class="ui container">
-    
-    {% if event.created_by == user.email %}
-      <p>delete</p>
-      <p>edit</p>
-    {% endif %}
-
+    <img class="ui image circular medium centered" src="../../../pictures/{{ event.image }}">
+    <h2 class="ui center aligned header">
+      <br />
+      {{ event.name }}
+    </h2>
+    <h5 class="ui center aligned header">
+      {{ event.desc }} <br />
+      {{ event.location }}
+      <br />
+      <span>
+        {{ event.start_day|date:"M d" }}  {{ event.start_time }} - {{ event.end_day|date:"M d" }}  {{ event.end_time }}
+      </span>
+      <br />
+      <br />
+      {% if event.created_by == user.email %}
+        <div class="ui buttons">
+          <button class="circular ui icon button yellow">
+            <i class="icon pencil alternate"></i>
+          </button>
+          <button class="circular ui icon button red">
+            <i class="icon trash"></i>
+          </button>
+        </div>
+      {% endif %}
+    </h5>
+    <br />
+    <div class="ui segments">
+      <div class="ui segment">
+        <h2 class="ui header">
+          <i class="fas fa-drumstick-bite fa-lg"></i>
+          <div class="content">
+            &nbsp; Entrees
+          </div>
+        </h2>
+        <hr />
+      </div>
+      <div class="ui segments">
+        <div class="ui segment">
+          <p>Turkey</p>
+        </div>
+        <div class="ui segment">
+          <p>Steak</p>
+        </div>
+        <div class="ui segment">
+          <p>Lobster Noodles</p>
+        </div>
+      </div>
+    </div>
+    <div class="ui segments">
+      <div class="ui segment">
+        <h2 class="ui header">
+          <i class="fas fa-bread-slice fa-lg"></i>
+          <div class="content">
+            &nbsp; Sides
+          </div>
+        </h2>
+        <hr />
+      </div>
+      <div class="ui segments">
+        <div class="ui segment">
+          <p>Fries</p>
+        </div>
+        <div class="ui segment">
+          <p>Veggies</p>
+        </div>
+        <div class="ui segment">
+          <p>Chips</p>
+        </div>
+      </div>
+    </div>
+    <div class="ui segments">
+      <div class="ui segment">
+        <h2 class="ui header">
+          <i class="birthday cake icon"></i>
+          <div class="content">
+            Desserts
+          </div>
+        </h2>
+        <hr />
+      </div>
+      <div class="ui segments">
+        <div class="ui segment">
+          <p>Carrot Cake</p>
+        </div>
+        <div class="ui segment">
+          <p>Fondue</p>
+        </div>
+        <div class="ui segment">
+          <p>Fruit Tray</p>
+        </div>
+      </div>
+    </div>
+    <div class="ui segments">
+      <div class="ui segment">
+        <h2 class="ui header">
+          <i class="glass martini icon"></i>
+          <div class="content">
+            Drinks
+          </div>
+        </h2>
+        <hr />
+      </div>
+      <div class="ui segments">
+        <div class="ui segment">
+          <p>Apple Cider</p>
+        </div>
+        <div class="ui segment">
+          <p>Mojitos</p>
+        </div>
+        <div class="ui segment">
+          <p>Grape Sparkling Cider</p>
+        </div>
+      </div>
+    </div>
+    <div class="ui segments">
+      <div class="ui segment">
+        <h2 class="ui header">
+          <i class="utensils icon"></i>
+          <div class="content">
+            Supplies
+          </div>
+        </h2>
+        <hr />
+      </div>
+      <div class="ui segments">
+        <div class="ui segment">
+          <p>Plates</p>
+        </div>
+        <div class="ui segment">
+          <p>Table Cloths</p>
+        </div>
+        <div class="ui segment">
+          <p>Utensils</p>
+        </div>
+      </div>
+    </div>
   </div>
+  <br />
+  <br />
+  <br />
 {%  endblock %}
