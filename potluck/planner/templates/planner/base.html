@@ -11,6 +11,9 @@
       <div class="ui container">
         {% if user.is_authenticated %}
           <a class="item" href="{% url 'events' %}">Events</a>
+          {% if user.is_superuser %}
+            <a class="item" href="{% url 'contacts' %}">Contacts</a>
+          {% endif %}
         {% else %}
           <a href="{% url 'home' %}">
             <img src="../../../pictures/logo-white.png" alt="logo-white" class="ui small image" />

@@ -24,6 +24,7 @@ from planner import views
 urlpatterns = [
     path('', views.home, name="home"),
     path('contact/', views.contact, name="contact"),
+    path('contacts/', views.contacts, name="contacts"),
     path('events/', views.events, name="events"),
     path('add_event/', views.add_event, name="add_event"),
     path('events/<int:pk>', views.event_details, name="event_details"),
