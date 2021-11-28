@@ -9,12 +9,13 @@
     </h2>
     <h3 class="ui header">
       Email: {{ contact.email }}
-      Sent: {{ contact.time_sent }}
+      <br />
+      Sent on: {{ contact.time_sent }}
     </h3>
     <p>
       Message: {{ contact.msg }}
     </p>
-    <a class="ui icon button yellow">
+    <a class="ui icon button yellow" href="{% url 'update_contact' contact.id %}">
       <i class="icon pencil"></i>
     </a>
     <a class="ui icon button red" href="{% url 'delete_contact' contact.id %}">

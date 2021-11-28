@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Contact, Event, Item
-from .forms import EventForm
+from .forms import EventForm, ContactForm
 
 # Create your views here.
 def home(request):
@@ -94,3 +94,12 @@ def contact_details(request, pk):
     contact.save()
 
   return render(request, 'planner/contactdetails.html', context)
+
+def update_contact(request, id):
+  contact = Contact.objects.get(id=id)
+  form = ContactForm(request.POST or None, instance=contact)
+
+  if form.is_valid():
+    form.save()
+    return redirect('contacts')
+  return render(request, 'planner/updatecontact.html', { 'form': form, 'contact': contact } )

@@ -18,25 +18,12 @@
       {% for contact in contacts %}
         <div class="item">
           <div class="right floated content">
-            <a class="ui icon button yellow">
+            <a class="ui icon button yellow" href="{% url 'update_contact' contact.id %}">
               <i class="icon pencil"></i>
             </a>
             <a class="ui icon button red" href="{% url 'delete_contact' contact.id %}">
               <i class="icon trash"></i>
             </a>
-            <!-- {% if contact.msg_read %}
-              <form method="POST" class="ui large form">
-                {% csrf_token %}
-                <button type="submit" class="ui button">Unread</button>
-              </form>
-            {% else %}
-              <div>
-                <form method="POST">
-                  {% csrf_token %}
-                  <button type="submit" class="ui button">Read</button>
-                </form>
-              </div>
-            {% endif %} -->
           </div>
           {% if contact.msg_read %}
             <i class="large envelope open outline middle aligned icon"></i>
