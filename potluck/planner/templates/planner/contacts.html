@@ -44,7 +44,7 @@
             <i class="large envelope outline middle aligned icon"></i>
           {% endif %}
           <div class="content">
-            <a class="header">{{ contact.email }}</a>
+            <a class="header" href="{% url 'contact_details' contact.id %}">{{ contact.email }}</a>
             <div class="description">{{ contact.time_sent | timesince }} ago</div>
           </div>
         </div>

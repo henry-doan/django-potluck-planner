@@ -1,0 +1,27 @@
+{% extends 'planner/base.html' %}
+
+{% block body %}
+  <div class="ui container">
+    <br />
+    <br />
+    <h2 class="ui header">
+      Name: {{ contact.name }}
+    </h2>
+    <h3 class="ui header">
+      Email: {{ contact.email }}
+      Sent: {{ contact.time_sent }}
+    </h3>
+    <p>
+      Message: {{ contact.msg }}
+    </p>
+    <a class="ui icon button yellow">
+      <i class="icon pencil"></i>
+    </a>
+    <a class="ui icon button red" href="{% url 'delete_contact' contact.id %}">
+      <i class="icon trash"></i>
+    </a>
+  </div>
+  <br />
+  <br />
+  <br />
+{%  endblock %}

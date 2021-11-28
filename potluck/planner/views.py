@@ -70,7 +70,7 @@ def update_event(request, id):
 
 def contacts(request):
   contacts = Contact.objects.all()
-  
+
   return render(request, 'planner/contacts.html', { 'contacts': contacts })
 
 def delete_contact(request, id):
@@ -81,3 +81,16 @@ def delete_contact(request, id):
     return redirect('contacts')
 
   return render(request, 'planner/deletecontact.html', { 'contact': contact })
+
+def contact_details(request, pk):
+  contact = Contact.objects.get(pk=pk)
+
+  context = {
+    'contact': contact,
+  }
+
+  if contact.msg_read == False:
+    contact.msg_read = True
+    contact.save()
+
+  return render(request, 'planner/contactdetails.html', context)
