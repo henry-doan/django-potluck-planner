@@ -3,7 +3,6 @@
 {% block body %}
   <div class="ui container">
     <div class="ui middle aligned center aligned grid">
-      <div class="four wide column"></div>
       <div class="eight wide column">
         <h2 class="ui red image header">
           <img src="../../../pictures/logo.png" class="image">
@@ -12,7 +11,44 @@
             Contacts
           </div>
         </h2>
-       
+      </div>
     </div>
-  </div>
+  {% if user.is_superuser %}
+    <div class="ui relaxed divided list">
+      {% for contact in contacts %}
+        <div class="item">
+          <div class="right floated content">
+            <a class="ui icon button yellow">
+              <i class="icon pencil"></i>
+            </a>
+            <a class="ui icon button red" href="{% url 'delete_contact' contact.id %}">
+              <i class="icon trash"></i>
+            </a>
+            <!-- {% if contact.msg_read %}
+              <form method="POST" class="ui large form">
+                {% csrf_token %}
+                <button type="submit" class="ui button">Unread</button>
+              </form>
+            {% else %}
+              <div>
+                <form method="POST">
+                  {% csrf_token %}
+                  <button type="submit" class="ui button">Read</button>
+                </form>
+              </div>
+            {% endif %} -->
+          </div>
+          {% if contact.msg_read %}
+            <i class="large envelope open outline middle aligned icon"></i>
+          {% else %}
+            <i class="large envelope outline middle aligned icon"></i>
+          {% endif %}
+          <div class="content">
+            <a class="header">{{ contact.email }}</a>
+            <div class="description">{{ contact.time_sent | timesince }} ago</div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
 {%  endblock %}

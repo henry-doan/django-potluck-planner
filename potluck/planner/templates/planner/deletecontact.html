@@ -1,0 +1,26 @@
+
+{% extends 'planner/base.html' %}
+
+{% block body %}
+  <div class="ui container">
+    <br />
+    <br />
+    <br />
+    <div class="ui placeholder segment center aligned">
+      <form method="POST">
+        {% csrf_token %} 
+        <h2 class="ui icon header">Are you sure you want to delete message from: {{ contact.email }}?</h2>
+        <h3>This will delete all of it's content and there is no going back</h3>
+        <button type="submit" class="ui button red">Delete</button>
+      </form>
+      <br />
+      <div class="inline">
+        <a class="item" href="{% url 'contacts' %}">
+          <div class="ui brown button">
+            Go Back to All Contacts Submissions
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

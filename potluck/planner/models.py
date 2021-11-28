@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.timezone import now
 
 # Create your models here.
 class Contact(models.Model):
@@ -8,6 +9,8 @@ class Contact(models.Model):
   name = models.CharField(max_length=200)
   email = models.CharField(max_length=200)
   msg = models.TextField(max_length=2000)
+  time_sent = models.DateTimeField(default=now)
+  msg_read = models.BooleanField(default=False)
 
 
 class Event(models.Model):

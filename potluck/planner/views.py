@@ -69,12 +69,15 @@ def update_event(request, id):
   return render(request, 'planner/updateevent.html', { 'form': form, 'event': event } )
 
 def contacts(request):
+  contacts = Contact.objects.all()
+  
+  return render(request, 'planner/contacts.html', { 'contacts': contacts })
+
+def delete_contact(request, id):
+  contact = Contact.objects.get(id=id)
+
   if request.method == 'POST':
-    # name = request.POST.get('name', '')
-    # email = request.POST.get('email', '')
-    # msg = request.POST.get('msg', '')
-    # contact = Contact(name=name, email=email, msg=msg)
-    
-    # contact.save()
-    # return render(request, 'planner/thank-you.html')
-  return render(request, 'planner/contacts.html')
+    contact.delete()
+    return redirect('contacts')
+
+  return render(request, 'planner/deletecontact.html', { 'contact': contact })
