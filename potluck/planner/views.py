@@ -42,12 +42,11 @@ def add_event(request):
 def event_details(request, pk):
   event = Event.objects.get(pk=pk)
   items = Item.objects.all()
-  # not showing item belonging to the event yet
-  entrees = Item.objects.filter(category = 'Entree')
-  sides = Item.objects.filter(category = 'Side')
-  desserts = Item.objects.filter(category = 'Dessert')
-  drinks = Item.objects.filter(category = 'Drink')
-  supplies = Item.objects.filter(category = 'Supplie')
+  entrees = Item.objects.filter(category = 'Entree', event = event)
+  sides = Item.objects.filter(category = 'Side', event = event)
+  desserts = Item.objects.filter(category = 'Dessert', event = event)
+  drinks = Item.objects.filter(category = 'Drink', event = event)
+  supplies = Item.objects.filter(category = 'Supplie', event = event)
 
   context = {
     'event': event,
