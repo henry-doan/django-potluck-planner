@@ -42,10 +42,21 @@ def add_event(request):
 def event_details(request, pk):
   event = Event.objects.get(pk=pk)
   items = Item.objects.all()
+  # not showing item belonging to the event yet
+  entrees = Item.objects.filter(category = 'Entree')
+  sides = Item.objects.filter(category = 'Side')
+  desserts = Item.objects.filter(category = 'Dessert')
+  drinks = Item.objects.filter(category = 'Drink')
+  supplies = Item.objects.filter(category = 'Supplie')
 
   context = {
     'event': event,
-    'items': items
+    'items': items,
+    'entrees': entrees,
+    'sides': sides,
+    'desserts': desserts,
+    'drinks': drinks,
+    'supplies': supplies,
   }
 
   return render(request, 'planner/eventdetails.html', context)
@@ -103,3 +114,73 @@ def update_contact(request, id):
     form.save()
     return redirect('contacts')
   return render(request, 'planner/updatecontact.html', { 'form': form, 'contact': contact } )
+
+def add_entree(request, pk):
+  event = Event.objects.get(pk=pk)
+
+  if request.method == 'POST':
+    name = request.POST.get('name', '')
+    category = 'Entree'
+    userId = request.user.id
+    created_by = request.user.first_name + " " + request.user.last_name
+    item = Item(name=name, category=category, event=event, userId=userId, created_by=created_by)
+
+    item.save()
+    return redirect('event_details', pk=pk)
+  return render(request, 'planner/addItem.html')
+
+def add_side(request, pk):
+  event = Event.objects.get(pk=pk)
+
+  if request.method == 'POST':
+    name = request.POST.get('name', '')
+    category = 'Side'
+    userId = request.user.id
+    created_by = request.user.first_name + " " + request.user.last_name
+    item = Item(name=name, category=category, event=event, userId=userId, created_by=created_by)
+
+    item.save()
+    return redirect('event_details', pk=pk)
+  return render(request, 'planner/addItem.html')
+
+def add_dessert(request, pk):
+  event = Event.objects.get(pk=pk)
+
+  if request.method == 'POST':
+    name = request.POST.get('name', '')
+    category = 'Dessert'
+    userId = request.user.id
+    created_by = request.user.first_name + " " + request.user.last_name
+    item = Item(name=name, category=category, event=event, userId=userId, created_by=created_by)
+
+    item.save()
+    return redirect('event_details', pk=pk)
+  return render(request, 'planner/addItem.html')
+
+def add_drink(request, pk):
+  event = Event.objects.get(pk=pk)
+
+  if request.method == 'POST':
+    name = request.POST.get('name', '')
+    category = 'Drink'
+    userId = request.user.id
+    created_by = request.user.first_name + " " + request.user.last_name
+    item = Item(name=name, category=category, event=event, userId=userId, created_by=created_by)
+
+    item.save()
+    return redirect('event_details', pk=pk)
+  return render(request, 'planner/addItem.html')
+
+def add_supplie(request, pk):
+  event = Event.objects.get(pk=pk)
+
+  if request.method == 'POST':
+    name = request.POST.get('name', '')
+    category = 'Supplie'
+    userId = request.user.id
+    created_by = request.user.first_name + " " + request.user.last_name
+    item = Item(name=name, category=category, event=event, userId=userId, created_by=created_by)
+
+    item.save()
+    return redirect('event_details', pk=pk)
+  return render(request, 'planner/addItem.html')

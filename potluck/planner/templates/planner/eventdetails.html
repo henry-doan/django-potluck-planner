@@ -32,28 +32,38 @@
     <br />
     <div class="ui segments">
       <div class="ui segment">
+        <a class="circular ui icon button right floated" href="{% url 'add_entree' event.id %}">
+          <i class="icon plus"></i>
+        </a>
         <h2 class="ui header">
           <i class="fas fa-drumstick-bite fa-lg"></i>
           <div class="content">
             &nbsp; Entrees
           </div>
-        </h2>
+        </h2> 
         <hr />
       </div>
       <div class="ui segments">
-        <div class="ui segment">
-          <p>Turkey</p>
-        </div>
-        <div class="ui segment">
-          <p>Steak</p>
-        </div>
-        <div class="ui segment">
-          <p>Lobster Noodles</p>
-        </div>
+        {% if entrees.count == 0 %}
+          <div class="ui segment">
+            <h4 class="ui blue header">
+              No one signed up for entrees
+            </h4>
+          </div>
+        {% else %}
+          {% for entree in entrees %}
+            <div class="ui segment">
+              <p>{{ entree.name }} - {{ entree.created_by }}</p>
+            </div>
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
     <div class="ui segments">
       <div class="ui segment">
+        <a class="circular ui icon button right floated" href="{% url 'add_side' event.id %}">
+          <i class="icon plus"></i>
+        </a>
         <h2 class="ui header">
           <i class="fas fa-bread-slice fa-lg"></i>
           <div class="content">
@@ -63,19 +73,26 @@
         <hr />
       </div>
       <div class="ui segments">
-        <div class="ui segment">
-          <p>Fries</p>
-        </div>
-        <div class="ui segment">
-          <p>Veggies</p>
-        </div>
-        <div class="ui segment">
-          <p>Chips</p>
-        </div>
+        {% if sides.count == 0 %}
+          <div class="ui segment">
+            <h4 class="ui blue header">
+              No one signed up for sides
+            </h4>
+          </div>
+        {% else %}
+          {% for side in sides %}
+            <div class="ui segment">
+              <p>{{ side.name }} - {{ side.created_by }}</p>
+            </div>
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
     <div class="ui segments">
       <div class="ui segment">
+        <a class="circular ui icon button right floated" href="{% url 'add_dessert' event.id %}">
+          <i class="icon plus"></i>
+        </a>
         <h2 class="ui header">
           <i class="birthday cake icon"></i>
           <div class="content">
@@ -85,19 +102,26 @@
         <hr />
       </div>
       <div class="ui segments">
-        <div class="ui segment">
-          <p>Carrot Cake</p>
-        </div>
-        <div class="ui segment">
-          <p>Fondue</p>
-        </div>
-        <div class="ui segment">
-          <p>Fruit Tray</p>
-        </div>
+        {% if desserts.count == 0 %}
+          <div class="ui segment">
+            <h4 class="ui blue header">
+              No one signed up for desserts
+            </h4>
+          </div>
+        {% else %}
+          {% for dessert in desserts %}
+            <div class="ui segment">
+              <p>{{ dessert.name }} - {{ dessert.created_by }}</p>
+            </div>
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
     <div class="ui segments">
       <div class="ui segment">
+        <a class="circular ui icon button right floated" href="{% url 'add_drink' event.id %}">
+          <i class="icon plus"></i>
+        </a>
         <h2 class="ui header">
           <i class="glass martini icon"></i>
           <div class="content">
@@ -107,19 +131,26 @@
         <hr />
       </div>
       <div class="ui segments">
-        <div class="ui segment">
-          <p>Apple Cider</p>
-        </div>
-        <div class="ui segment">
-          <p>Mojitos</p>
-        </div>
-        <div class="ui segment">
-          <p>Grape Sparkling Cider</p>
-        </div>
+        {% if drinks.count == 0 %}
+          <div class="ui segment">
+            <h4 class="ui blue header">
+              No one signed up for drinks
+            </h4>
+          </div>
+        {% else %}
+          {% for drink in drinks %}
+            <div class="ui segment">
+              <p>{{ drink.name }} - {{ drink.created_by }}</p>
+            </div>
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
     <div class="ui segments">
       <div class="ui segment">
+        <a class="circular ui icon button right floated" href="{% url 'add_supplie' event.id %}">
+          <i class="icon plus"></i>
+        </a>
         <h2 class="ui header">
           <i class="utensils icon"></i>
           <div class="content">
@@ -129,15 +160,19 @@
         <hr />
       </div>
       <div class="ui segments">
-        <div class="ui segment">
-          <p>Plates</p>
-        </div>
-        <div class="ui segment">
-          <p>Table Cloths</p>
-        </div>
-        <div class="ui segment">
-          <p>Utensils</p>
-        </div>
+        {% if supplies.count == 0 %}
+          <div class="ui segment">
+            <h4 class="ui blue header">
+              No one signed up for supplies
+            </h4>
+          </div>
+        {% else %}
+          {% for supplie in supplies %}
+            <div class="ui segment">
+              <p>{{ supplie.name }} - {{ supplie.created_by }}</p>
+            </div>
+          {% endfor %}
+        {% endif %}
       </div>
     </div>
   </div>

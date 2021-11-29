@@ -1,0 +1,29 @@
+{% extends 'planner/base.html' %}
+
+{% block body %}
+  <div class="ui container">
+    <div class="ui middle aligned center aligned grid">
+      <div class="four wide column"></div>
+      <div class="eight wide column">
+        <h2 class="ui red image header">
+          <br />
+          <div class="content">
+            Add Item
+          </div>
+        </h2>
+        <div class="ui stacked segment inverted">
+          <form method="POST" class="ui large form inverted" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="field">
+              <div class="ui input">
+                <input type="text" name="name" placeholder="Item Name" required>
+              </div>
+            </div>
+            <button type="submit" class="ui inverted red basic button">I'll Bring It!</button>
+          </form>
+        </div>
+      </div>
+      <div class="four wide column"></div>
+    </div>
+  </div>
+{%  endblock %}

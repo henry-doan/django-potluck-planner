@@ -36,4 +36,4 @@ class Item(models.Model):
   userId = models.IntegerField()	
   image = models.ImageField(upload_to='pictures', default='pictures/noimg.jpg')
   event = models.ForeignKey(Event, on_delete=models.CASCADE)
-  created_by= models.CharField(max_length=100, default='admin@admin.com')
+  created_by = models.CharField(max_length=100, default='admin@admin.com')
