@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from .models import Contact, Event, Item
 from .forms import EventForm, ContactForm, ItemForm
+import pdfkit
+from django.http import HttpResponse
+from django.template import loader
+import io
 
 # Create your views here.
 def home(request):
@@ -208,3 +212,36 @@ def delete_item(request, id):
     return redirect('event_details', pk=item.event.id)
 
   return render(request, 'planner/deleteitem.html', { 'item': item })
+
+def dlevent(request, id):
+  event = Event.objects.get(pk=id)
+  items = Item.objects.all()
+  entrees = Item.objects.filter(category = 'Entree', event = event)
+  sides = Item.objects.filter(category = 'Side', event = event)
+  desserts = Item.objects.filter(category = 'Dessert', event = event)
+  drinks = Item.objects.filter(category = 'Drink', event = event)
+  supplies = Item.objects.filter(category = 'Supplie', event = event)
+  file_event_name = event.name + ".pdf"
+
+  context = {
+    'event': event,
+    'items': items,
+    'entrees': entrees,
+    'sides': sides,
+    'desserts': desserts,
+    'drinks': drinks,
+    'supplies': supplies,
+  }
+
+  template = loader.get_template('planner/eventpdf.html')
+  html = template.render(context)
+  options = {
+    'page-size': 'Letter',
+    'encoding': 'UTF-8'
+  }
+  pdf = pdfkit.from_string(html, False, options)
+  response = HttpResponse(pdf, content_type="application/pdf")
+  response['Content-Disposition'] = 'attachment'
+  filename = file_event_name
+
+  return response

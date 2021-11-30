@@ -1,10 +1,15 @@
-{% extends 'planner/base.html' %}
 
-{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Potluck Planner</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
   <div class="ui container">
     <br />
     <br />
-    <img class="ui image circular medium centered" src="../../../pictures/{{ event.image }}">
     <h2 class="ui center aligned header">
       <br />
       {{ event.name }}
@@ -18,27 +23,10 @@
       </span>
       <br />
       <br />
-      {% if event.created_by == user.email %}
-        <div class="ui buttons">
-          <a class="circular ui icon button yellow" href="{% url 'update_event' event.id %}">
-            <i class="icon pencil alternate"></i>
-          </a>
-          <a class="circular ui icon button red" href="{% url 'delete_event' event.id %}">
-            <i class="icon trash"></i>
-          </a>
-        </div>
-      {% endif %}
     </h5>
-    <a class="ui icon button green circular right floated" href="{% url 'dlevent' event.id %}">
-      <i class="download icon"></i>
-    </a>
-    <br />
     <br />
     <div class="ui segments">
       <div class="ui segment">
-        <a class="circular ui icon button right floated" href="{% url 'add_entree' event.id %}">
-          <i class="icon plus"></i>
-        </a>
         <h2 class="ui header">
           <i class="fas fa-drumstick-bite fa-lg"></i>
           <div class="content">
@@ -57,14 +45,6 @@
         {% else %}
           {% for entree in entrees %}
             <div class="ui clearing segment">
-              {% if entree.created_by == username %}
-                <a class="ui icon basic red button right floated" href="{% url 'delete_item' entree.id %}">
-                  <i class="icon trash red"></i>
-                </a>
-                <a class="ui icon basic yellow button right floated" href="{% url 'update_item' entree.id %}">
-                  <i class="icon pencil yellow"></i>
-                </a>
-              {% endif %}
               <p>{{ entree.name }} - {{ entree.created_by }}</p>
             </div>
           {% endfor %}
@@ -73,9 +53,6 @@
     </div>
     <div class="ui segments">
       <div class="ui segment">
-        <a class="circular ui icon button right floated" href="{% url 'add_side' event.id %}">
-          <i class="icon plus"></i>
-        </a>
         <h2 class="ui header">
           <i class="fas fa-bread-slice fa-lg"></i>
           <div class="content">
@@ -94,14 +71,6 @@
         {% else %}
           {% for side in sides %}
             <div class="ui clearing segment">
-              {% if side.created_by == username %}
-                <a class="ui icon basic red button right floated" href="{% url 'delete_item' side.id %}">
-                  <i class="icon trash red"></i>
-                </a>
-                <a class="ui icon basic yellow button right floated" href="{% url 'update_item' side.id %}">
-                  <i class="icon pencil yellow"></i>
-                </a>
-              {% endif %}
               <p>{{ side.name }} - {{ side.created_by }}</p>
             </div>
           {% endfor %}
@@ -110,9 +79,6 @@
     </div>
     <div class="ui segments">
       <div class="ui segment">
-        <a class="circular ui icon button right floated" href="{% url 'add_dessert' event.id %}">
-          <i class="icon plus"></i>
-        </a>
         <h2 class="ui header">
           <i class="birthday cake icon"></i>
           <div class="content">
@@ -131,14 +97,6 @@
         {% else %}
           {% for dessert in desserts %}
             <div class="ui clearing segment">
-              {% if dessert.created_by == username %}
-                <a class="ui icon basic red button right floated" href="{% url 'delete_item' dessert.id %}">
-                  <i class="icon trash red"></i>
-                </a>
-                <a class="ui icon basic yellow button right floated" href="{% url 'update_item' dessert.id %}">
-                  <i class="icon pencil yellow"></i>
-                </a>
-              {% endif %}
               <p>{{ dessert.name }} - {{ dessert.created_by }}</p>
             </div>
           {% endfor %}
@@ -147,9 +105,6 @@
     </div>
     <div class="ui segments">
       <div class="ui segment">
-        <a class="circular ui icon button right floated" href="{% url 'add_drink' event.id %}">
-          <i class="icon plus"></i>
-        </a>
         <h2 class="ui header">
           <i class="glass martini icon"></i>
           <div class="content">
@@ -168,14 +123,6 @@
         {% else %}
           {% for drink in drinks %}
             <div class="ui clearing segment">
-              {% if drink.created_by == username %}
-                <a class="ui icon basic red button right floated" href="{% url 'delete_item' drink.id %}">
-                  <i class="icon trash red"></i>
-                </a>
-                <a class="ui icon basic yellow button right floated" href="{% url 'update_item' drink.id %}">
-                  <i class="icon pencil yellow"></i>
-                </a>
-              {% endif %}
               <p>{{ drink.name }} - {{ drink.created_by }}</p>
             </div>
           {% endfor %}
@@ -184,9 +131,6 @@
     </div>
     <div class="ui segments">
       <div class="ui segment">
-        <a class="circular ui icon button right floated" href="{% url 'add_supplie' event.id %}">
-          <i class="icon plus"></i>
-        </a>
         <h2 class="ui header">
           <i class="utensils icon"></i>
           <div class="content">
@@ -205,14 +149,6 @@
         {% else %}
           {% for supplie in supplies %}
             <div class="ui segment">
-              {% if supplie.created_by == username %}
-                <a class="ui icon basic red button right floated" href="{% url 'delete_item' supplie.id %}">
-                  <i class="icon trash red"></i>
-                </a>
-                <a class="ui icon basic yellow button right floated" href="{% url 'update_item' supplie.id %}">
-                  <i class="icon pencil yellow"></i>
-                </a>
-              {% endif %}
               <p>{{ supplie.name }} - {{ supplie.created_by }}</p>
             </div>
           {% endfor %}
@@ -222,5 +158,6 @@
   </div>
   <br />
   <br />
-  <br />
-{%  endblock %}
+  <br />  
+</body>
+</html>
