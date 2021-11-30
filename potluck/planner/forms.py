@@ -12,3 +12,8 @@ class ContactForm(forms.ModelForm):
   class Meta:
     model = Contact 
     fields = ['name', 'email', 'msg', 'time_sent', 'msg_read']
+
+class ItemForm(forms.ModelForm):
+  class Meta:
+    model = Item 
+    fields = ['name', 'category']

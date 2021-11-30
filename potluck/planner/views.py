@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Contact, Event, Item
-from .forms import EventForm, ContactForm
+from .forms import EventForm, ContactForm, ItemForm
 
 # Create your views here.
 def home(request):
@@ -47,6 +47,7 @@ def event_details(request, pk):
   desserts = Item.objects.filter(category = 'Dessert', event = event)
   drinks = Item.objects.filter(category = 'Drink', event = event)
   supplies = Item.objects.filter(category = 'Supplie', event = event)
+  username = request.user.first_name + " " + request.user.last_name
 
   context = {
     'event': event,
@@ -56,6 +57,7 @@ def event_details(request, pk):
     'desserts': desserts,
     'drinks': drinks,
     'supplies': supplies,
+    'username': username,
   }
 
   return render(request, 'planner/eventdetails.html', context)
@@ -183,3 +185,22 @@ def add_supplie(request, pk):
     item.save()
     return redirect('event_details', pk=pk)
   return render(request, 'planner/addItem.html')
+
+
+def update_item(request, id):
+  item = Item.objects.get(id=id)
+  # form = ItemForm(request.POST or None, instance=item)
+
+  if request.method == 'POST':
+    name = request.POST.get('name', '')
+    category = request.POST.get('category', '')
+
+    updated_item = Item(id=item.id, name=name, category=category, userId=item.userId, event=item.event, created_by=item.created_by)
+
+    updated_item.save()
+    return redirect('event_details', pk=item.event.id)
+
+  # if form.is_valid():
+  #   form.save()
+  #   return redirect('events')
+  return render(request, 'planner/updateitem.html', {  'item': item } )

@@ -1,0 +1,49 @@
+{% extends 'planner/base.html' %}
+
+{% block body %}
+  <div class="ui container">
+    <div class="ui middle aligned center aligned grid">
+      <div class="four wide column"></div>
+      <div class="eight wide column">
+        <h2 class="ui yellow image header">
+          <img src="../../../pictures/logo.png" class="image">
+          <br />
+          <div class="content">
+            Update Item
+          </div>
+        </h2>
+        <div class="ui stacked segment inverted">
+          <form method="POST" class="ui large form inverted">
+            {% csrf_token %}
+            <!-- {% for field in form %}
+              <div class="form-group">
+                {{ field.name.title }}
+                <br />
+                {{ field }}
+                <br />
+              </div>
+              <br />
+            {% endfor %} -->
+            <div class="field">
+              <div class="ui left icon input">
+                <i class="user circle icon"></i>
+                <input type="text" name="name" value="{{ item.name }}" required>
+              </div>
+            </div>
+            <div class="field">
+              <select name="category" required>
+                <option value="Entree" {% if item.category == "Entree" %} selected {% endif %}>Entree</option>
+                <option value="Side" {% if item.category == "Side" %} selected {% endif %}>Side</option>
+                <option value="Dessert" {% if item.category == "Dessert" %} selected {% endif %}>Dessert</option>
+                <option value="Drink" {% if item.category == "Drink" %} selected {% endif %}>Drink</option>
+                <option value="Supply" {% if item.category == "Supply" %} selected {% endif %}>Supply</option>
+              </select>
+            </div>
+            <button type="submit" class="ui inverted red basic button">Update</button>
+          </form>
+        </div>
+      </div>
+      <div class="four wide column"></div>
+    </div>
+  </div>
+{%  endblock %}

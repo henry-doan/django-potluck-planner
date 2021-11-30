@@ -38,6 +38,7 @@ urlpatterns = [
     path('events/<int:pk>/addDessert', views.add_dessert, name="add_dessert"),
     path('events/<int:pk>/addDrink', views.add_drink, name="add_drink"),
     path('events/<int:pk>/addSupplie', views.add_side, name="add_supplie"),
+    path('items/<int:id>/update/', views.update_item, name="update_item"),
     path('register/', user_views.register, name='register'),
     path('login/', authentication_views.LoginView.as_view(template_name='users/login.html'), name='login'),
     path('logout/', authentication_views.LogoutView.as_view(template_name='users/logout.html'), name='logout'),
