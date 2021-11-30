@@ -15,9 +15,12 @@
       <div class="ui stacked segment inverted">
         <form method="POST" class="ui large form">
           {% csrf_token %}
+          {% if form.errors %}
+            <p>{{form.errors}}</p>
+          {% endif %}
           {% for field in form %}
             <div class="field">
-              {{ field.name }}
+              {{ field.name.title }}
               {{ field }}
             </div>
             <br />

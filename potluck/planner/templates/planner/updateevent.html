@@ -15,12 +15,27 @@
         <div class="ui stacked segment inverted">
           <form method="POST" class="ui large form inverted" enctype="multipart/form-data">
             {% csrf_token %}
+            {% if form.errors %}
+              <p>{{form.errors}}</p>
+            {% endif %}
             {% for field in form %}
-              <div class="form-group">
-                {{ field.name }}
-                <br />
+              <div class="field">
+                {% if field.name == "desc" %}
+                  Description
+                {% elif field.name == "start_day" %}
+                  Start Day
+                {% elif field.name == "end_day" %}
+                  End Day
+                {% elif field.name == "start_time" %}
+                  Start Time
+                {% elif field.name == "end_time" %}
+                  End Time
+                {% elif field.name == "msg_read" %}
+                  Message Read
+                {% else %}
+                  {{ field.name.title }}
+                {% endif %}
                 {{ field }}
-                <br />
               </div>
               <br />
             {% endfor %}

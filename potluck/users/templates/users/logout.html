@@ -1,5 +1,20 @@
 {% extends 'planner/base.html' %}
 
 {% block body %}
-  <h1>You have been logged out!</h1>
+  <div class="ui container">
+    <br />
+    <br />
+    <br />
+    <div class="ui placeholder segment center aligned">
+      <h1 class="ui icon header">You have been logged out!</h1>
+      <br />
+      <div class="inline">
+        <a class="item" href="{% url 'home' %}">
+          <div class="ui brown button">
+            Go Back Home
+          </div>
+        </a>
+      </div>
+    </div>
+  </div> 
 {% endblock %}

@@ -20,7 +20,17 @@
           {% endif %}
           {% for field in form %}
             <div class="field">
-              {{ field.name }}
+              {% if field.name == "first_name" %}
+                First Name
+              {% elif field.name == "last_name" %}
+                Last Name
+              {% elif field.name == "password1" %}
+                Password
+              {% elif field.name == "password2" %}
+                Password Confirmation
+              {% else %}
+                {{ field.name.title }}
+              {% endif %}
               {{ field }}
             </div>
             <br />
