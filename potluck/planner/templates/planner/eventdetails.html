@@ -54,7 +54,10 @@
           {% for entree in entrees %}
             <div class="ui clearing segment">
               {% if entree.created_by == username %}
-                <a class="ui icon button right floated" href="{% url 'update_item' entree.id %}">
+                <a class="ui icon basic red button right floated" href="{% url 'delete_item' entree.id %}">
+                  <i class="icon trash red"></i>
+                </a>
+                <a class="ui icon basic yellow button right floated" href="{% url 'update_item' entree.id %}">
                   <i class="icon pencil yellow"></i>
                 </a>
               {% endif %}
@@ -88,7 +91,10 @@
           {% for side in sides %}
             <div class="ui clearing segment">
               {% if side.created_by == username %}
-                <a class="ui icon button right floated" href="{% url 'update_item' side.id %}">
+                <a class="ui icon basic red button right floated" href="{% url 'delete_item' side.id %}">
+                  <i class="icon trash red"></i>
+                </a>
+                <a class="ui icon basic yellow button right floated" href="{% url 'update_item' side.id %}">
                   <i class="icon pencil yellow"></i>
                 </a>
               {% endif %}
@@ -122,7 +128,10 @@
           {% for dessert in desserts %}
             <div class="ui clearing segment">
               {% if dessert.created_by == username %}
-                <a class="ui icon button right floated" href="{% url 'update_item' dessert.id %}">
+                <a class="ui icon basic red button right floated" href="{% url 'delete_item' dessert.id %}">
+                  <i class="icon trash red"></i>
+                </a>
+                <a class="ui icon basic yellow button right floated" href="{% url 'update_item' dessert.id %}">
                   <i class="icon pencil yellow"></i>
                 </a>
               {% endif %}
@@ -156,7 +165,10 @@
           {% for drink in drinks %}
             <div class="ui clearing segment">
               {% if drink.created_by == username %}
-                <a class="ui icon button right floated" href="{% url 'update_item' drink.id %}">
+                <a class="ui icon basic red button right floated" href="{% url 'delete_item' drink.id %}">
+                  <i class="icon trash red"></i>
+                </a>
+                <a class="ui icon basic yellow button right floated" href="{% url 'update_item' drink.id %}">
                   <i class="icon pencil yellow"></i>
                 </a>
               {% endif %}
@@ -190,7 +202,10 @@
           {% for supplie in supplies %}
             <div class="ui segment">
               {% if supplie.created_by == username %}
-                <a class="ui icon button right floated" href="{% url 'update_item' supplie.id %}">
+                <a class="ui icon basic red button right floated" href="{% url 'delete_item' supplie.id %}">
+                  <i class="icon trash red"></i>
+                </a>
+                <a class="ui icon basic yellow button right floated" href="{% url 'update_item' supplie.id %}">
                   <i class="icon pencil yellow"></i>
                 </a>
               {% endif %}

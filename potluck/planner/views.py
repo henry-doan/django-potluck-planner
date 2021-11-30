@@ -189,18 +189,22 @@ def add_supplie(request, pk):
 
 def update_item(request, id):
   item = Item.objects.get(id=id)
-  # form = ItemForm(request.POST or None, instance=item)
 
   if request.method == 'POST':
     name = request.POST.get('name', '')
     category = request.POST.get('category', '')
-
     updated_item = Item(id=item.id, name=name, category=category, userId=item.userId, event=item.event, created_by=item.created_by)
 
     updated_item.save()
     return redirect('event_details', pk=item.event.id)
 
-  # if form.is_valid():
-  #   form.save()
-  #   return redirect('events')
   return render(request, 'planner/updateitem.html', {  'item': item } )
+
+def delete_item(request, id):
+  item = Item.objects.get(id=id)
+
+  if request.method == 'POST':
+    item.delete()
+    return redirect('event_details', pk=item.event.id)
+
+  return render(request, 'planner/deleteitem.html', { 'item': item })
