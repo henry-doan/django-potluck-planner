@@ -5,14 +5,15 @@
   <div class="ui middle aligned center aligned grid">
     <div class="four wide column"></div>
     <div class="eight wide column">
+      <br />
       <h2 class="ui red image header">
-        <img src="../../../pictures/logo.png" class="image">
+        <img src="../../../pictures/logo-brown.png" class="image">
         <br />
-        <div class="content">
+        <div class="content" style="color: #535F63">
           Register
         </div>
       </h2>
-      <div class="ui stacked segment inverted">
+      <div class="ui stacked segment inverted" style="background: #888073">
         <form method="POST" class="ui large form">
           {% csrf_token %}
           {% if form.errors %}
@@ -35,13 +36,13 @@
             </div>
             <br />
           {% endfor %}
-          <button type="submit" class="ui inverted red basic button">Register</button>
+          <button type="submit" class="ui inverted olive basic button">Register</button>
         </form>
       </div>
       <div class="ui message">
         Already a member? 
         <br />
-        <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'login' %}" style="color: #888073">Login</a>
       </div>
     </div>
     <div class="four wide column"></div>

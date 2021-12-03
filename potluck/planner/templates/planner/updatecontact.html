@@ -6,7 +6,7 @@
       <div class="four wide column"></div>
       <div class="eight wide column">
         <h2 class="ui yellow image header">
-          <img src="../../../pictures/logo.png" class="image">
+          <img src="../../../pictures/logo-brown.png" class="image">
           <br />
           <div class="content">
             Update Contact
@@ -15,7 +15,7 @@
         <h4 class="ui blue header">
           * This will modify the original details, and there is no going back
         </h4>
-        <div class="ui stacked segment inverted">
+        <div class="ui stacked segment inverted" style="background: #888073">
           <form method="POST" class="ui large form inverted">
             {% csrf_token %}
             {% if form.errors %}
@@ -38,7 +38,7 @@
               </div>
               <br />
             {% endfor %}
-            <button type="submit" class="ui inverted red basic button">Update</button>
+            <button type="submit" class="ui inverted olive basic button">Update</button>
           </form>
         </div>
       </div>

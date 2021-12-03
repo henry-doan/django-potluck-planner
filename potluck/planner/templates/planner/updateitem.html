@@ -5,14 +5,15 @@
     <div class="ui middle aligned center aligned grid">
       <div class="four wide column"></div>
       <div class="eight wide column">
+        <br />
         <h2 class="ui yellow image header">
-          <img src="../../../pictures/logo.png" class="image">
+          <img src="../../../pictures/logo-brown.png" class="image">
           <br />
           <div class="content">
             Update Item
           </div>
         </h2>
-        <div class="ui stacked segment inverted">
+        <div class="ui stacked segment inverted" style="background: #888073">
           <form method="POST" class="ui large form inverted">
             {% csrf_token %}
             <div class="field">
@@ -30,7 +31,7 @@
                 <option value="Supply" {% if item.category == "Supply" %} selected {% endif %}>Supply</option>
               </select>
             </div>
-            <button type="submit" class="ui inverted red basic button">Update</button>
+            <button type="submit" class="ui inverted olive basic button">Update</button>
           </form>
         </div>
       </div>

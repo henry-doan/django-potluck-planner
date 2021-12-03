@@ -3,13 +3,13 @@
 {% block body %}
   <div class="ui container">
     <br />
-    <h2 class="ui center aligned icon header">
+    <h2 class="ui center aligned icon header" style="color: #535F63">
       <i class="circular utensils icon"></i>
       Events
     </h2>
     <br />
     <a href="{% url 'add_event' %}">
-      <button class="circular ui icon button right floated">
+      <button class="circular ui icon olive button right floated">
         <i class="icon plus"></i>
       </button>
     </a>
@@ -23,7 +23,7 @@
             </a>
           </div>
           <div class="content">
-            <div class="header">{{ event.name }}</div>
+            <div class="header" style="color: #535F63">{{ event.name }}</div>
             <div class="meta">
               <p>{{ event.location }}</p>
             </div>

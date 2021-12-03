@@ -4,10 +4,16 @@
   <title>Potluck Planner</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" integrity="sha256-9mbkOfVho3ZPXfM7W8sV2SndrGDuh7wuyLjtsWeTI1Q=" crossorigin="anonymous" />
   <script src="https://kit.fontawesome.com/d8439c164e.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Economica">
 </head>
+  <style>
+    body, h1, h2, h3, h4, h5, a, .button {
+      font-family: 'Economica' !important;
+    }
+  </style>
 <body>
-  <div class="ui inverted vertical masthead center aligned segment">
-    <div class="ui large secondary inverted pointing menu stackable">
+  <div class="ui inverted vertical masthead center aligned segment" style="background: #535F63">
+    <div class="ui large secondary inverted pointing menu stackable" style="border: #535F63">
       <div class="ui container">
         {% if user.is_authenticated %}
           <a class="item" href="{% url 'events' %}">Events</a>
@@ -23,14 +29,14 @@
         <div class="right menu">
           {% if user.is_authenticated %}
             <div class="item">
-              <a class="ui inverted brown button" href="{% url 'logout' %}">Logout</a>
+              <a class="ui inverted olive button" href="{% url 'logout' %}">Logout</a>
             </div>
           {% else %}
             <div class="item">
-              <a href="{% url 'login' %}" class="ui inverted button">Log in</a>
+              <a href="{% url 'login' %}" class="ui olive inverted button">Log in</a>
             </div>
             <div class="item">
-              <a href="{% url 'register' %}" class="ui inverted button">Sign Up</a>
+              <a href="{% url 'register' %}" class="ui olive inverted button">Sign Up</a>
             </div>
           {% endif %}
         </div>

@@ -1,22 +1,22 @@
 {% extends 'planner/base.html' %}
 
 {% block body %}
-  <div class="ui inverted vertical masthead center aligned segment">
+  <div class="ui inverted vertical masthead center aligned segment" style="background: #888073">
     <div class="ui text container">
       <h1 class="ui inverted header">
         Potluck Planner
       </h1>
       <h4>Making Potlucks Easy</h4>
-      <a class="ui inverted red basic button" href="{% url 'register' %}">Get Started</a>
+      <a class="ui olive basic inverted button" href="{% url 'register' %}">Get Started</a>
     </div>
   </div>
 
   <div class="ui vertical stripe segment">
     <div class="ui middle aligned stackable grid container">
       <div class="row">
-        <div class="eight wide column">
-          <h3 class="ui header">Create Events Easy</h3>
-          <p>Be able to finalize event details for all infomation needed for the event. Be able to change event details and ship it into a PDF.</p>
+        <div class="eight wide column" >
+          <h3 class="ui header" style="color: #535F63">Create Events Easy</h3>
+          <p style="color: #535F63">Be able to finalize event details for all infomation needed for the event. Be able to change event details and ship it into a PDF.</p>
         </div>
         <div class="six wide right floated column">
           <img src="https://images.unsplash.com/photo-1577308856961-8e9ec50d0c67?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" class="ui large bordered rounded image">
@@ -24,7 +24,7 @@
       </div>
       <div class="row">
         <div class="center aligned column">
-          <a class="ui button" >Contact Us</a>
+          <a class="ui brown inverted button" >Contact Us</a>
         </div>
       </div>
     </div>
@@ -37,13 +37,13 @@
           <img src="https://images.unsplash.com/photo-1577308856961-8e9ec50d0c67?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80" class="ui large bordered rounded image">
         </div>
         <div class="eight wide column">
-          <h3 class="ui header">Signup for Items for Potluck</h3>
-          <p>See who signed up for what, and be able to sign up for custom items to bring.</p>
+          <h3 class="ui header" style="color: #535F63">Signup for Items for Potluck</h3>
+          <p style="color: #535F63">See who signed up for what, and be able to sign up for custom items to bring.</p>
         </div>
       </div>
       <div class="row">
         <div class="center aligned column">
-          <a class="ui button" href="{% url 'login' %}">Already a Member?</a>
+          <a class="ui brown inverted button" href="{% url 'login' %}">Already a Member?</a>
         </div>
       </div>
     </div>
@@ -53,12 +53,12 @@
     <div class="ui equal width stackable internally celled grid">
       <div class="center aligned row">
         <div class="column">
-          <h3>"My Potluck was so fun using this"</h3>
-          <p>Bob Bob</p>
+          <h3 style="color: #535F63">"My Potluck was so fun using this"</h3>
+          <p style="color: #535F63">Bob Bob</p>
         </div>
         <div class="column">
-          <h3>"So easy to use!"</h3>
-          <p>
+          <h3 style="color: #535F63">"So easy to use!"</h3>
+          <p style="color: #535F63">
             Ricky Bobby
           </p>
         </div>

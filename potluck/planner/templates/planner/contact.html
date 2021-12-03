@@ -5,14 +5,15 @@
     <div class="ui middle aligned center aligned grid">
       <div class="four wide column"></div>
       <div class="eight wide column">
+        <br />
         <h2 class="ui red image header">
-          <img src="../../../pictures/logo.png" class="image">
+          <img src="../../../pictures/logo-brown.png" class="image">
           <br />
-          <div class="content">
+          <div class="content" style="color: #535F63">
             Contact US
           </div>
         </h2>
-        <div class="ui stacked segment inverted">
+        <div class="ui stacked segment inverted" style="background: #888073">
           <form method="POST" class="ui large form">
             {% csrf_token %}
             <div class="field">
@@ -32,7 +33,7 @@
                 <textarea type="text" name="msg" placeholder="Message"></textarea>
               </div>
             </div>
-            <button type="submit" class="ui inverted red basic button">Send</button>
+            <button type="submit" class="ui inverted olive basic button">Send</button>
           </form>
         </div>
       </div>

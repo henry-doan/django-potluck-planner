@@ -5,14 +5,15 @@
     <div class="ui middle aligned center aligned grid">
       <div class="four wide column"></div>
       <div class="eight wide column">
-        <h2 class="ui red image header">
-          <img src="../../../pictures/logo.png" class="image">
+        <br />
+        <h2 class="ui image header" style="color: #535F63">
+          <img src="../../../pictures/logo-brown.png" class="image">
           <br />
           <div class="content">
             Add Event
           </div>
         </h2>
-        <div class="ui stacked segment inverted">
+        <div class="ui stacked segment inverted" style="background: #888073">
           <form method="POST" class="ui large form inverted" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="field">
@@ -67,7 +68,7 @@
                 </div>
               </div>
             </div>
-            <button type="submit" class="ui inverted red basic button">Send</button>
+            <button type="submit" class="ui inverted olive basic button">Send</button>
           </form>
         </div>
       </div>

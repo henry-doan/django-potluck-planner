@@ -4,8 +4,9 @@
   <div class="ui container">
     <div class="ui middle aligned center aligned grid">
       <div class="eight wide column">
-        <h2 class="ui red image header">
-          <img src="../../../pictures/logo.png" class="image">
+        <br />
+        <h2 class="ui image header" style="color: #535F63">
+          <img src="../../../pictures/logo-brown.png" class="image">
           <br />
           <div class="content">
             Contacts
@@ -26,9 +27,9 @@
             </a>
           </div>
           {% if contact.msg_read %}
-            <i class="large envelope open outline middle aligned icon"></i>
+            <i class="large envelope open outline middle aligned icon" style="color: #535F63"></i>
           {% else %}
-            <i class="large envelope outline middle aligned icon"></i>
+            <i class="large envelope outline middle aligned icon" style="color: #535F63"></i>
           {% endif %}
           <div class="content">
             <a class="header" href="{% url 'contact_details' contact.id %}">{{ contact.email }}</a>
