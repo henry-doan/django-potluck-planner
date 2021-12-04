@@ -18,7 +18,7 @@ def contact(request):
     contact = Contact(name=name, email=email, msg=msg)
     
     contact.save()
-    # return render(request, 'planner/thank-you.html')
+    return render(request, 'planner/home.html')
   return render(request, 'planner/contact.html')
 
 def events(request):
