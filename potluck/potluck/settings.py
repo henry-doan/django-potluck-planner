@@ -135,5 +135,3 @@ MEDIA_URL = '/pictures/'
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
-config = pdfkit.configuration(wkhtmltopdf='./bin/wkhtmltopdf')
-pdf = pdfkit.from_string(html, False, options=options, configuration=config)
