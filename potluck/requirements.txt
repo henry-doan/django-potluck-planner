@@ -1,2 +1,4 @@
 gunicorn
 django-heroku
+pdfkit
+wkhtmltopdf
